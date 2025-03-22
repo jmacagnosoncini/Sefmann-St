@@ -1,0 +1,896 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Kufam:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #000000;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    /* margin: 0; */
+}
+
+
+h1 {
+    display: flex;
+    flex-direction: column;
+    color: #FFFFF2;
+    font-family: "Kufam";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    gap: 5px;
+    width: 181px;
+    margin-top: 16px;
+    margin-left: 15px;
+}
+
+
+.title {
+    color: #EA3017;
+    font-size: 25px;
+    background-color: transparent;
+    font-family: "Kufam";
+}
+
+.interior-design{
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+
+
+nav {
+    position: fixed;
+    top: 60px;
+    right: 0;  
+    width: 180px;
+    height: auto;
+    background-color: #FFFFF2;
+    border-radius: 10px;
+    padding: 15px;
+    transform: translateX(100%); 
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+    display: flex; 
+    gap: 20px;
+    flex-direction: column;
+    background-color: #FFFFF2;
+}
+
+nav ul li {
+    display: inline;
+    background-color: transparent;
+    padding: 0px;
+    transition: transform 0.3s ease-in-out;
+}
+
+nav ul li:hover {
+    text-decoration: underline #000000;
+}
+
+nav ul li a {
+    text-decoration: none; 
+    color: inherit; 
+    font-weight: bold; 
+    font-size: 13px;
+    font-family: "Kufam";
+    background-color: transparent;
+    color: #000;
+}
+
+nav button {
+    background-color: transparent;
+    font-family: "Kufam";
+    border-radius: 10px;
+    padding: 5px;
+    transition: all 0.3s ease-in-out;
+    border: 1.5px solid;
+}
+
+nav button:hover {
+    background-color: #EA3017;
+    color: #FFFFF2;
+    border: 1.5px solid #EA3017;
+    color: #FFFFF2;
+}
+
+.navbar a {
+    background-color: transparent;
+}
+
+/* menu toggle */
+
+#menu-toggle {
+    display: none;
+}
+
+.forma-menu {
+    position: fixed;  
+    top: 10px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+    background-color: #FFFFF2; 
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    transition: all ease-in-out 0.4s;
+}
+
+.forma-menu i {
+    color: #000000;
+    background-color: #FFFFF2;
+}
+
+
+.fa-bars {
+    background-color: transparent;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+#menu-toggle:checked ~ nav {
+    transform: translateX(-15px);
+
+}
+
+#menu-toggle:checked ~ .forma-menu {
+    border: 3px solid #EA3017;
+}
+
+/* cross to close menu toggle */
+
+.fa-xmark {
+    background-color: transparent;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    color: #000000;
+}
+
+.close-menu {
+    background-color: transparent;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.close-menu:hover i {
+    transform: rotate(180deg) scale(1.05);;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+#close-menu-toggle {
+    display: none;
+}
+
+#close-menu-toggle:checked ~ nav {
+    transform: translatey(-100%);  
+}
+
+
+
+/* Seccion main */
+
+
+.img-inicial {
+    max-width: calc(100% - 30px);
+    height: 145px;
+    border-radius: 10px;
+    background: url(./img/casa-sesentero-hamburgo-retro-asimetrico-westwing-x-armin-morbach-1-1626366979.jpg);
+    background-size: cover;
+    margin: 0 auto;
+    background-position: 30% 50%;
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.container-description-studio {
+    position: relative;
+    max-width: calc(100% - 30px);
+    height: auto;
+    padding: 14px 15px;
+    background-color: #FFFFF2;
+    border-radius: 10px 10px 10px 0;
+    margin-top: 27px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.description-studio {
+    background-color: transparent;
+    color: #000;
+    font-family: "Kufam";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.container-btn {
+    background-color: #FFFFF2;
+    width: 110px;
+    height: 40px;
+    margin-left: 15px;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    justify-content: center;  
+    align-items: center; 
+    transition: all 0.3s ease-in-out;
+}
+
+.container-btn a {
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.container-btn button {
+    width: 98px;
+    height: 34px;
+    font-family: "Kufam";
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background-color: #2B201E;
+    color: #FFFFF2;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.container-btn button:hover {
+    background-color: #EA3017;
+    color: #FFFFF2;
+}
+
+/* descripcion container interior y residential design */
+
+
+.container-residential-commercial {
+    color: #FFFFF2;
+    font-family: "Kufam";
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 30px;
+    max-width: calc(100% - 30px);
+    margin-left: 15px;
+    margin-right: 15px;
+
+}
+
+
+.container-residential-commercial p {
+    color: #FFFFF2;
+    font-family: "Kufam";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 6px;
+}
+
+.carrousel-residential-commercial {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+    gap: 17px;
+    scroll-behavior: smooth;
+    margin-top: 16px;
+}
+
+.carrousel-residential-commercial::-webkit-scrollbar {
+    display: none;
+    border-radius: 10px;
+}
+
+.img-carrousel {
+    flex: 0 0 auto;
+    width: 225px;
+    height: 225px;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease-in-out;
+}
+
+.img-carrousel:hover {
+    transform: scale(1.01);
+}
+
+.residential-1 {
+    background-image: url(./img/stanovanje.webp);
+}
+
+.residential-2 {
+    background-image: url(./img/yrwwqpnyb7ys.jpg);
+}
+
+.residential-3 {
+    background-image: url(./img/images\ \(1\).jpeg);
+}
+
+.commercial-1 {
+    background-image: url(./img/commercial\ design\ 1.jpg);
+}
+
+.commercial-2 {
+    background-image: url(./img/Office-1.jpg);
+}
+
+.commercial-3 {
+    background-image: url(./img/644d85aef5995ab16ea7ac89_6e73e669.png);
+}
+
+/* latest projects */
+
+.latest-project {
+    color: #EA3017;
+    margin-left: 15px;
+    font-size: 25px;
+    font-family: "Kufam";
+    margin-top: 30px;
+}
+
+
+.img-project-width {
+    width: 100%;
+    height: 350px;
+}
+
+.parent-project-container {
+    width: calc(100% - 30px);
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.div1 {
+    background-image: url(./project/04-1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 3; 
+    height: 100%;
+}
+
+.div2 {
+    background-image: url(./project/0_2-5.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+.div3 {
+    background-image: url(./project/11-small-home-interior-design-ideas-3.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.div4 {
+    background-image: url(./project/5-game-changing-commercial-interior-design-ideas2.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+}
+
+.div5 {
+    background-image: url(./project/commercial-interior-designer-2-.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    grid-column: 2 / 3;
+    grid-row: 3 / 5;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.div6 {
+    background-image: url(./project/Duna_Wp001_0_3-1.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+}
+
+.img-project-hover {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-project-hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.4s ease-in-out;
+}
+
+.img-project-hover:hover::before {
+    transform: scale(1.1);
+}
+
+
+
+/* team presentation */
+
+.container-member {
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+.team-presentation {
+    font-family: "Kufam";
+    font-size: 25px;
+    color: #EA3017;
+    margin-top: 30px;
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.team-txt-introduction {
+    font-size: 1rem;
+    color: #FFFFF2;
+    font-family: "Kufam";
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    
+}
+
+.emma-bennet {
+    background-image: url(./img/cheerful-young-woman-examining-blueprints-home.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.daniel-carter {
+    background-image: url(./img/man-working-design-project-side-view.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0% 10%;
+}
+
+.sophie-adams {
+    background-image: url(./img/young-woman-wearing-embroidered-shirt.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0% 25%;
+}
+
+.img-team-member {
+    height: 225px;
+    align-self: stretch;
+    flex: 0 0 auto;
+    width: 100%;
+    height: 225px;
+    border-radius: 10px;
+
+}
+
+.name-team {
+    color: #EA3017;
+    font-family: "Kufam";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.team-position {
+    color: #727270;
+}
+
+.team-member-description {
+    color: #FFFFF2;
+    font-family: "Kufam";
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 7px;
+}
+
+
+.second-member {
+    margin-top: 30px
+}
+
+/* design steps */
+
+.how-we-work-section{
+    margin-top: 30px;
+}
+
+.container-steps-design {
+    width: calc(100% - 30px);
+    min-height: 150px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    background-color: #FFFFF2;
+    border-radius: 10px;
+    padding: 14px 15px;
+
+}
+
+.first-container-steps-design {
+    margin-top: 15px;
+}
+
+.text-design-steps {
+    font-family: "Kufam";
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background-color: transparent;
+    color: #000;
+}
+ 
+.steps-design span {
+    font-size: 30px;
+    background-color: transparent;
+    color: #EA3017;
+}
+
+.steps-design {
+    color: #EA3017; 
+    font-family: "Kufam";
+    font-size: 0.9rem;
+    background-color: transparent;
+}
+
+.design-proces-ttl {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+
+/* testimonial */
+
+.testimonials-ttl {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 30px;
+}
+
+.txt-testimonial-ttl {
+    color: #FFFFF2;
+    font-family: "Kufam";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.photo-client {
+    height: 80px;
+    min-width: 80px;
+    background-position: center;
+    border-radius: 50%;
+}
+/* clients */
+
+
+.txt-testimonial-ttl {
+    margin-top: 10px;
+    width: calc(100% - 30px);
+}
+
+.txt-testimonial-ttl {
+    margin-left: 15px;
+}
+
+.general-container-client-testimonial {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.card-client-testimonial {
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - 30px);
+    min-height: 140px;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #FFFFF2;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.txt-setting {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.first-client {
+    background-image: url(./img/clients/client\ woman\ 1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 60%;
+}
+
+.second-client {
+    background-image: url(./img/clients/client\ men\ 1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.third-client {
+    background-image: url(./img/clients/client\ woman\ 2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.fourth-client {
+    background-image: url(./img/clients/client\ men\ 3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.fifth-client {
+    background-image: url(./img/clients/client\ men\ 2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.client-name {
+    background-color: transparent;
+    color: #727270;
+    font-family: "Kufam";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.client-review {
+    color: #FFFFF2;
+    font-family: "Kufam";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    background-color: transparent;
+}
+
+/* get in touch form */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.ttl-contact {
+    font-size: 25px;
+    color: #EA3017;
+    background-color: transparent;
+    font-family: "Kufam";
+    margin-top: 30px;
+    margin-left: 15px;
+}
+
+.contact-formularium-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    margin-top: 15px;
+    gap: 15px;
+    color: #FFFFF2;
+    font-family: "Kufam";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.contact-formularium-container iframe {
+    /* margin-right: 15px; */
+    width: 100%;
+}
+
+.contact-formularium-container div {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-formularium-container label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.contact-formularium-container input,
+.contact-formularium-container select,
+.contact-formularium-container textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 12px;
+    font-family: "Kufam";
+    font-style: normal;
+    font-weight: 400;
+    color: #FFFFF2;
+    border: 1px solid #FFFFF2;
+    border-radius: 10px;
+}
+
+.btn-submit {
+    background-color: #FFFFF2;  
+    color: #000; 
+    border: none;  
+    padding: 10px 20px;  
+    font-family: "Kufam";
+    font-size: 12px;
+    font-weight: 400;
+    border-radius: 10px;  
+    cursor: pointer; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #EA3017;
+    color: #FFFFF2;
+} 
+
+.map-studio {
+    border-radius: 10px;
+}
+
+/* footer section */
+
+.footer-studio {
+    background-color: transparent;
+    color: #FFFFF2;
+    font-family: "Kufam";
+    font-size: 12px;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.icon-footer {
+    color: #FFFFF2;
+    font-size: 30px;
+    transition: all 0.3s ease-in-out;
+}
+
+.icon-footer:hover {
+    transform: scale(1.3);
+}
+
+.icons-social-media {
+    width: calc(50% - 30px);
+    margin-left: 15px;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+
+
+/* responsive no displai */
+
+.container-description-studio-laptop, .container-btn-laptop {
+    display: none;
+}
+
+
+/* reveal effect */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* webkits */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #2B201E inset !important; /* Color de fondo del input */
+    -webkit-text-fill-color: #FFFFF2 !important; /* Color del texto */
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+
+
+
+
+

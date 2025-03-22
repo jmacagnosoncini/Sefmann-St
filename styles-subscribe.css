@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Kufam:ital,wght@0,400..900;1,400..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #000000;
+}
+
+
+
+body {
+    font-family: "Kufam";
+    height: 100vh;
+    background-color: #000000;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos del header */
+header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    color: #FFFFF2 !important;
+    font-family: "Kufam";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    gap: 5px;
+    width: 181px;
+    margin-top: 16px;
+    margin-left: 15px;
+    text-decoration: none !important; /* Elimina el subrayado */
+}
+
+.logo:visited, 
+.logo:hover, 
+.logo:focus, 
+.logo:active {
+    text-decoration: none !important;
+    color: #FFFFF2 !important;
+}
+
+/* Contenedor del newsletter */
+.newsletter-container {
+    background: #000000;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    border: 1.5px solid #EA3017;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newsletter-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #FFFFF2;
+    font-weight: bold;
+}
+
+.newsletter-text {
+    font-size: 16px;
+    color: #FFFFF2;
+    margin-bottom: 20px;
+}
+
+/* Formulario */
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.newsletter-input {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    font-size: 14px;
+    font-family: "Kufam";
+    font-weight: 400;
+    color: #FFFFF2;
+    border: 1px solid #FFFFF2;
+    border-radius: 10px;
+    background: transparent;
+    text-align: center;
+    outline: none;
+}
+
+.newsletter-input::placeholder {
+    color: #AAAAAA;
+}
+
+.newsletter-button {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: "Kufam";
+    font-weight: 400;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #FFFFF2;
+    color: #000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.newsletter-button:hover {
+    background-color: #EA3017;
+    color: #FFFFF2;
+}
+
+@media (max-width: 480px) {
+    .newsletter-container {
+        padding: 15px;
+    }
+
+    .newsletter-title {
+        font-size: 20px;
+    }
+
+    .newsletter-text {
+        font-size: 14px;
+    }
+
+    .newsletter-input, 
+    .newsletter-button {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
