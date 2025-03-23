@@ -1,4 +1,4 @@
-# Estudio de Diseño de Interiores
+# Sefmann Estudio de Diseño de Interiores
 
 Este proyecto es un sitio web desarrollado como parte de un curso de **Desarrollo Web**, donde se creó un sitio para un **Estudio de Diseño de Interiores**. El objetivo de este proyecto es mostrar el portafolio de trabajos y servicios ofrecidos por el estudio.
 
