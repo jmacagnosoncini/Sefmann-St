@@ -13,7 +13,7 @@ Abrí `index.html` directamente en el navegador. `subscribe.html` es la segunda 
 - `styles-subscribe.css`: composición de la página de newsletter.
 - `img/` y `project/`: fotografías originales.
 
-Se mantienen la tipografía Kufam, el fondo negro, blanco cálido, rojo, fotografías y galerías asimétricas del diseño original. Los layouts usan Grid/Flexbox, tamaños fluidos y un ancho máximo de 1440 px. El menú móvil funciona con un checkbox HTML accesible por teclado. Las galerías móviles se desplazan horizontalmente mediante controles nativos del navegador.
+Se mantienen la tipografía Kufam, el fondo negro, blanco cálido, rojo, fotografías y galerías asimétricas del diseño original. La evolución visual incorpora títulos más expresivos, encabezados en dos columnas, numeración de secciones, galerías escalonadas, retratos verticales y un proceso sobre un bloque crema continuo. Los layouts usan Grid/Flexbox, tamaños fluidos y un ancho máximo de 1360 px. El menú móvil funciona con un checkbox HTML accesible por teclado. Las galerías móviles se desplazan horizontalmente mediante controles nativos del navegador.
 
 Los formularios y los iconos sociales son **demostraciones visuales**, sin envío de datos ni servicios conectados. Los botones de formulario no envían información. Google Fonts, Font Awesome y el mapa embebido original necesitan conexión a Internet.
 
