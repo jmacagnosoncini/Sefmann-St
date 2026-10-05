@@ -4,23 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subscribe to Our Newsletter</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles-subscribe.css">
 </head>
-<body>
+<body class="newsletter-page">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header id="home">
-        <nav>
+        <nav aria-label="Return to home">
             <a href="index.html" class="logo">Sefmann St</a>
-        </nav> 
+        </nav>
     </header>
 
-    <div class="newsletter-container">
-        <h2 class="newsletter-title">Stay Updated!</h2>
+    <main id="main-content" class="newsletter-container">
+        <h1 class="newsletter-title">Stay Updated!</h1>
         <p class="newsletter-text">Subscribe to our newsletter to receive the latest news and updates from Sefmann St.</p>
-        <form class="newsletter-form">
-            <input type="email" placeholder="Enter your email" class="newsletter-input" required>
-            <button type="submit" class="newsletter-button">Subscribe</button>
+        <form class="newsletter-form" aria-label="Newsletter layout demonstration">
+            <!-- Static coursework: no form submission or backend. -->
+            <button type="submit" disabled hidden></button>
+            <label for="newsletter-email" class="visually-hidden">E-mail</label>
+            <input id="newsletter-email" name="email" autocomplete="email" type="email" placeholder="Enter your email" class="newsletter-input" required>
+            <button type="button" class="newsletter-button">Subscribe</button>
         </form>
-    </div>
+    </main>
 </body>
 </html>
 

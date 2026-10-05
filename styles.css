@@ -1,896 +1,168 @@
-@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Kufam:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kufam:wght@400;500;600;700&display=swap');
 
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background: #000000;
+/* Shared palette and rhythm: keep the original studio identity. */
+:root {
+    --ink: #000;
+    --paper: #fffff2;
+    --accent: #ea3017;
+    --muted: #a3a39d;
+    --gutter: clamp(15px, 2.2vw, 40px);
+    --section-space: clamp(40px, 5.5vw, 80px);
+    --gap: clamp(12px, 1.5vw, 24px);
+    --radius: 10px;
+    --content-width: 1440px;
 }
-
-html {
-    scroll-behavior: smooth;
-}
-
+* { box-sizing: border-box; }
+body, h1, h2, h3, p, ul { margin: 0; }
+html { scroll-behavior: smooth; }
 body {
-    overflow-x: hidden;
-    /* margin: 0; */
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Kufam', sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
 }
-
-
-h1 {
-    display: flex;
-    flex-direction: column;
-    color: #FFFFF2;
-    font-family: "Kufam";
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    gap: 5px;
-    width: 181px;
-    margin-top: 16px;
-    margin-left: 15px;
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; object-fit: cover; }
+button, input, select, textarea { font: inherit; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+section { scroll-margin-top: 24px; }
+main, header, footer {
+    width: min(100% - var(--gutter) * 2, var(--content-width));
+    margin-inline: auto;
 }
-
-
-.title {
-    color: #EA3017;
-    font-size: 25px;
-    background-color: transparent;
-    font-family: "Kufam";
+main > section + section { margin-top: var(--section-space); }
+h2, h3 { line-height: 1.22; text-wrap: balance; }
+h2, .title {
+    color: var(--accent);
+    font-size: clamp(1.55rem, 3.8vw, 3.5rem);
+    font-weight: 600;
+    letter-spacing: -.025em;
 }
-
-.interior-design{
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    position: relative;
-}
-
-
-nav {
-    position: fixed;
-    top: 60px;
-    right: 0;  
-    width: 180px;
-    height: auto;
-    background-color: #FFFFF2;
-    border-radius: 10px;
-    padding: 15px;
-    transform: translateX(100%); 
-    transition: transform 0.3s ease-in-out;
-    z-index: 1000;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-nav ul {
-    list-style: none; 
+p { text-wrap: pretty; }
+.visually-hidden, .skip-link:not(:focus) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
     padding: 0;
-    margin: 0;
-    display: flex; 
-    gap: 20px;
-    flex-direction: column;
-    background-color: #FFFFF2;
-}
-
-nav ul li {
-    display: inline;
-    background-color: transparent;
-    padding: 0px;
-    transition: transform 0.3s ease-in-out;
-}
-
-nav ul li:hover {
-    text-decoration: underline #000000;
-}
-
-nav ul li a {
-    text-decoration: none; 
-    color: inherit; 
-    font-weight: bold; 
-    font-size: 13px;
-    font-family: "Kufam";
-    background-color: transparent;
-    color: #000;
-}
-
-nav button {
-    background-color: transparent;
-    font-family: "Kufam";
-    border-radius: 10px;
-    padding: 5px;
-    transition: all 0.3s ease-in-out;
-    border: 1.5px solid;
-}
-
-nav button:hover {
-    background-color: #EA3017;
-    color: #FFFFF2;
-    border: 1.5px solid #EA3017;
-    color: #FFFFF2;
-}
-
-.navbar a {
-    background-color: transparent;
-}
-
-/* menu toggle */
-
-#menu-toggle {
-    display: none;
-}
-
-.forma-menu {
-    position: fixed;  
-    top: 10px;
-    right: 15px;
-    width: 45px;
-    height: 45px;
-    background-color: #FFFFF2; 
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-    transition: all ease-in-out 0.4s;
-}
-
-.forma-menu i {
-    color: #000000;
-    background-color: #FFFFF2;
-}
-
-
-.fa-bars {
-    background-color: transparent;
-    font-size: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-}
-
-#menu-toggle:checked ~ nav {
-    transform: translateX(-15px);
-
-}
-
-#menu-toggle:checked ~ .forma-menu {
-    border: 3px solid #EA3017;
-}
-
-/* cross to close menu toggle */
-
-.fa-xmark {
-    background-color: transparent;
-    font-size: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-    color: #000000;
-}
-
-.close-menu {
-    background-color: transparent;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.close-menu:hover i {
-    transform: rotate(180deg) scale(1.05);;
-    transition: transform 0.3s ease-in-out;
-}
-
-
-#close-menu-toggle {
-    display: none;
-}
-
-#close-menu-toggle:checked ~ nav {
-    transform: translatey(-100%);  
-}
-
-
-
-/* Seccion main */
-
-
-.img-inicial {
-    max-width: calc(100% - 30px);
-    height: 145px;
-    border-radius: 10px;
-    background: url(./img/casa-sesentero-hamburgo-retro-asimetrico-westwing-x-armin-morbach-1-1626366979.jpg);
-    background-size: cover;
-    margin: 0 auto;
-    background-position: 30% 50%;
-    margin-top: 20px;
-    margin-left: 15px;
-    margin-right: 15px;
-}
-
-.container-description-studio {
-    position: relative;
-    max-width: calc(100% - 30px);
-    height: auto;
-    padding: 14px 15px;
-    background-color: #FFFFF2;
-    border-radius: 10px 10px 10px 0;
-    margin-top: 27px;
-    margin-left: 15px;
-    margin-right: 15px;
-}
-
-.description-studio {
-    background-color: transparent;
-    color: #000;
-    font-family: "Kufam";
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.container-btn {
-    background-color: #FFFFF2;
-    width: 110px;
-    height: 40px;
-    margin-left: 15px;
-    border-radius: 0 0 10px 10px;
-    display: flex;
-    justify-content: center;  
-    align-items: center; 
-    transition: all 0.3s ease-in-out;
-}
-
-.container-btn a {
-    text-decoration: none;
-    background-color: transparent;
-}
-
-.container-btn button {
-    width: 98px;
-    height: 34px;
-    font-family: "Kufam";
-    font-size: 11px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    background-color: #2B201E;
-    color: #FFFFF2;
-    border: none;
-    border-radius: 10px;
-    transition: all 0.3s ease-in-out;
-}
-
-.container-btn button:hover {
-    background-color: #EA3017;
-    color: #FFFFF2;
-}
-
-/* descripcion container interior y residential design */
-
-
-.container-residential-commercial {
-    color: #FFFFF2;
-    font-family: "Kufam";
-    font-size: 11px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-top: 30px;
-    max-width: calc(100% - 30px);
-    margin-left: 15px;
-    margin-right: 15px;
-
-}
-
-
-.container-residential-commercial p {
-    color: #FFFFF2;
-    font-family: "Kufam";
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-top: 6px;
-}
-
-.carrousel-residential-commercial {
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
+    overflow: hidden;
+    clip-path: inset(50%);
     white-space: nowrap;
-    width: 100%;
-    gap: 17px;
-    scroll-behavior: smooth;
-    margin-top: 16px;
 }
-
-.carrousel-residential-commercial::-webkit-scrollbar {
-    display: none;
-    border-radius: 10px;
+.skip-link:focus {
+    position: fixed;
+    top: 12px;
+    left: var(--gutter);
+    z-index: 20;
+    background: var(--paper);
+    color: var(--ink);
+    padding: 12px 18px;
+    border-radius: var(--radius);
 }
-
-.img-carrousel {
-    flex: 0 0 auto;
-    width: 225px;
-    height: 225px;
-    border-radius: 10px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: transform 0.3s ease-in-out;
-}
-
-.img-carrousel:hover {
-    transform: scale(1.01);
-}
-
-.residential-1 {
-    background-image: url(./img/stanovanje.webp);
-}
-
-.residential-2 {
-    background-image: url(./img/yrwwqpnyb7ys.jpg);
-}
-
-.residential-3 {
-    background-image: url(./img/images\ \(1\).jpeg);
-}
-
-.commercial-1 {
-    background-image: url(./img/commercial\ design\ 1.jpg);
-}
-
-.commercial-2 {
-    background-image: url(./img/Office-1.jpg);
-}
-
-.commercial-3 {
-    background-image: url(./img/644d85aef5995ab16ea7ac89_6e73e669.png);
-}
-
-/* latest projects */
-
-.latest-project {
-    color: #EA3017;
-    margin-left: 15px;
-    font-size: 25px;
-    font-family: "Kufam";
-    margin-top: 30px;
-}
-
-
-.img-project-width {
-    width: 100%;
-    height: 350px;
-}
-
-.parent-project-container {
-    width: calc(100% - 30px);
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-top: 15px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-}
-
-.div1 {
-    background-image: url(./project/04-1.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 10px;
-    grid-column: 1 / 2;
-    grid-row: 1 / 3; 
-    height: 100%;
-}
-
-.div2 {
-    background-image: url(./project/0_2-5.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 10px;
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-}
-
-.div3 {
-    background-image: url(./project/11-small-home-interior-design-ideas-3.webp);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 10px;
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-}
-
-.div4 {
-    background-image: url(./project/5-game-changing-commercial-interior-design-ideas2.webp);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 10px;
-    grid-column: 1 / 2;
-    grid-row: 3 / 4;
-}
-
-.div5 {
-    background-image: url(./project/commercial-interior-designer-2-.jpeg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 10px;
-    grid-column: 2 / 3;
-    grid-row: 3 / 5;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-}
-
-.div6 {
-    background-image: url(./project/Duna_Wp001_0_3-1.webp);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 10px;
-    grid-column: 1 / 2;
-    grid-row: 4 / 5;
-}
-
-.img-project-hover {
-    position: relative;
-    overflow: hidden;
-}
-
-.img-project-hover::before {
-    content: "";
+/* Native checkbox menu remains usable by keyboard without JavaScript. */
+header { display: flex; align-items: center; justify-content: space-between; min-height: 80px; gap: 24px; position: relative; }
+.brand, .logo { font-size: 22px; font-weight: 400; line-height: 1.3; white-space: nowrap; }
+.brand a, .logo { text-decoration: none; }
+#menu-toggle, .forma-menu {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: inherit;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: transform 0.4s ease-in-out;
+    top: 18px;
+    right: 0;
+    width: 44px;
+    height: 44px;
+    margin: 0;
 }
-
-.img-project-hover:hover::before {
-    transform: scale(1.1);
+#menu-toggle { opacity: 0; cursor: pointer; z-index: 12; }
+.forma-menu { display: grid; place-items: center; border-radius: 5px; background: var(--paper); color: var(--ink); z-index: 11; }
+.menu-lines, .menu-lines::before, .menu-lines::after { display: block; height: 2px; width: 22px; background: currentColor; }
+.menu-lines { position: relative; }
+.menu-lines::before, .menu-lines::after { content: ''; position: absolute; left: 0; }
+.menu-lines::before { top: -7px; }
+.menu-lines::after { top: 7px; }
+#menu-toggle:focus-visible + .forma-menu { outline: 2px solid var(--accent); outline-offset: 5px; }
+#menu-toggle:checked + .forma-menu { color: var(--accent); }
+#menu-toggle:checked + .forma-menu .menu-lines { background: transparent; }
+#menu-toggle:checked + .forma-menu .menu-lines::before { top: 0; transform: rotate(45deg); }
+#menu-toggle:checked + .forma-menu .menu-lines::after { top: 0; transform: rotate(-45deg); }
+.navbar {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: min(300px, 100%);
+    padding: 12px;
+    border-radius: var(--radius);
+    background: var(--paper);
+    color: var(--ink);
+    z-index: 10;
+    visibility: hidden;
 }
-
-
-
-/* team presentation */
-
-.container-member {
-    display: flex;
-    flex-direction: column;
-    margin-right: 15px;
-    margin-left: 15px;
-    margin-top: 30px;
-    gap: 15px;
+#menu-toggle:checked ~ .navbar { visibility: visible; }
+.navbar ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.navbar a { display: flex; align-items: center; min-height: 44px; padding: 8px 10px; font-size: .8rem; line-height: 1.4; font-weight: 600; text-decoration: none; }
+.navbar a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.navbar .newsletter-link { border: 1px solid currentColor; border-radius: var(--radius); margin-top: 6px; }
+.newsletter-link:hover { background: var(--accent); color: var(--paper); text-decoration: none !important; }
+/* One introduction, placed below the photograph on mobile and over it on desktop. */
+.hero { display: grid; }
+.hero-image { width: 100%; aspect-ratio: 2 / 1; border-radius: var(--radius); object-position: 30% 50%; }
+.studio-intro { margin-top: 24px; }
+.description-studio { background: var(--paper); color: var(--ink); border-radius: 10px 10px 10px 0; padding: clamp(18px, 2vw, 30px); font-size: clamp(.95rem, 2vw, 1.8rem); line-height: 1.5; }
+.contact-link { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 18px; border: 5px solid var(--paper); border-top: 0; background: #2b201e; border-radius: 0 0 10px 10px; font-size: .85rem; text-decoration: none; }
+.contact-link:hover { background: var(--accent); }
+/* Services: swipeable strips on phones, original asymmetric grids on tablets. */
+.container-residential-commercial + .container-residential-commercial { margin-top: var(--section-space); }
+.container-residential-commercial > p, .team-txt-introduction, .txt-testimonial-ttl { max-width: 70ch; margin-top: 16px; font-size: clamp(1rem, 1.4vw, 1.2rem); }
+.carrousel-residential-commercial { display: flex; gap: var(--gap); overflow-x: auto; margin-top: 24px; padding-bottom: 10px; scroll-snap-type: x proximity; scrollbar-width: thin; scrollbar-color: var(--muted) var(--ink); }
+.img-carrousel { flex: 0 0 82%; width: 82%; aspect-ratio: 1; border-radius: var(--radius); scroll-snap-align: start; }
+/* Team retains portrait/text rows on tablet and three columns on desktop. */
+.parent-member-container { display: grid; gap: 36px; margin-top: 28px; }
+.container-member { display: grid; gap: 18px; min-width: 0; }
+.img-team-member { width: 100%; aspect-ratio: 4 / 3; border-radius: var(--radius); }
+.daniel-carter { object-position: 0% 10%; }
+.sophie-adams { object-position: 0% 25%; }
+.name-team { color: var(--accent); font-size: clamp(1.1rem, 1.8vw, 1.5rem); font-weight: 500; line-height: 1.4; }
+.team-position { color: var(--muted); }
+.team-member-description { margin-top: 12px; font-size: .95rem; line-height: 1.7; }
+/* Preserve the two-column, staggered project mosaic at all widths. */
+.parent-project-container { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: clamp(140px, 24vw, 350px); gap: var(--gap); margin-top: 24px; }
+.img-project-width { width: 100%; height: 100%; min-height: 0; border-radius: var(--radius); }
+.div1 { grid-column: 1; grid-row: 1 / 3; }
+.div2 { grid-column: 2; grid-row: 1; }
+.div3 { grid-column: 2; grid-row: 2; }
+.div4 { grid-column: 1; grid-row: 3; }
+.div5 { grid-column: 2; grid-row: 3 / 5; }
+.div6 { grid-column: 1; grid-row: 4; }
+/* Existing cream process panels grow with their content. */
+.parent-container-design-process { display: grid; gap: var(--gap); margin-top: 24px; }
+.container-steps-design { background: var(--paper); color: var(--ink); border-radius: var(--radius); padding: clamp(18px, 2vw, 26px); }
+.steps-design { color: #bd2612; font-size: 1.1rem; font-weight: 600; line-height: 1.4; }
+.number-design-step { display: inline-block; font-size: 2rem; margin-right: 4px; }
+.text-design-steps { margin-top: 12px; font-size: .95rem; }
+/* Keep the outlined testimonials, with comfortable reading widths. */
+.general-container-client-testimonial { display: grid; gap: var(--gap); margin-top: 24px; }
+.card-client-testimonial { display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: start; gap: 16px; padding: 18px; border: 1px solid var(--paper); border-radius: var(--radius); }
+.photo-client { width: 64px; height: 64px; border-radius: 50%; }
+.first-client { object-position: 60%; }
+.client-name { color: var(--muted); font-size: .85rem; line-height: 1.5; font-weight: 400; }
+.client-review { margin-top: 10px; font-size: .9rem; line-height: 1.7; }
+/* Contact is a static layout demonstration. */
+.contact-formularium-container { display: grid; gap: 28px; margin-top: 24px; }
+.form { display: grid; gap: 18px; min-width: 0; }
+.form > div { display: grid; gap: 8px; }
+.form label { font-size: .95rem; font-weight: 500; }
+input, select, textarea { width: 100%; min-width: 0; min-height: 48px; padding: 12px 14px; background: var(--ink); color: var(--paper); border: 1px solid var(--paper); border-radius: var(--radius); font-size: 1rem; }
+textarea { resize: vertical; }
+::placeholder { color: var(--muted); opacity: 1; }
+.btn-submit, .newsletter-button { min-height: 48px; padding: 12px 20px; background: var(--paper); color: var(--ink); border: 0; border-radius: var(--radius); cursor: pointer; font-size: 1rem; text-decoration: none; transition: background-color .2s, color .2s; }
+.btn-submit:hover, .newsletter-button:hover { background: var(--accent); color: var(--paper); }
+.map-studio { width: 100%; height: 300px; border: 0; border-radius: var(--radius); }
+footer { margin-top: var(--section-space); padding-block: 24px 36px; }
+.container-parent-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+.footer-studio, .d > p { font-size: .8rem; }
+.icons-social-media { display: flex; align-items: center; gap: 20px; margin-top: 8px; }
+.icon-footer { font-size: 26px; }
+input:autofill { background: #2b201e; color: var(--paper); }
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; }
 }
-
-.team-presentation {
-    font-family: "Kufam";
-    font-size: 25px;
-    color: #EA3017;
-    margin-top: 30px;
-    margin-top: 30px;
-    margin-left: 15px;
-    margin-right: 15px;
-}
-
-.team-txt-introduction {
-    font-size: 1rem;
-    color: #FFFFF2;
-    font-family: "Kufam";
-    margin-top: 10px;
-    margin-left: 15px;
-    margin-right: 15px;
-    
-}
-
-.emma-bennet {
-    background-image: url(./img/cheerful-young-woman-examining-blueprints-home.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.daniel-carter {
-    background-image: url(./img/man-working-design-project-side-view.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 0% 10%;
-}
-
-.sophie-adams {
-    background-image: url(./img/young-woman-wearing-embroidered-shirt.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 0% 25%;
-}
-
-.img-team-member {
-    height: 225px;
-    align-self: stretch;
-    flex: 0 0 auto;
-    width: 100%;
-    height: 225px;
-    border-radius: 10px;
-
-}
-
-.name-team {
-    color: #EA3017;
-    font-family: "Kufam";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.team-position {
-    color: #727270;
-}
-
-.team-member-description {
-    color: #FFFFF2;
-    font-family: "Kufam";
-    font-size: 0.8rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-top: 7px;
-}
-
-
-.second-member {
-    margin-top: 30px
-}
-
-/* design steps */
-
-.how-we-work-section{
-    margin-top: 30px;
-}
-
-.container-steps-design {
-    width: calc(100% - 30px);
-    min-height: 150px;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-top: 15px;
-    background-color: #FFFFF2;
-    border-radius: 10px;
-    padding: 14px 15px;
-
-}
-
-.first-container-steps-design {
-    margin-top: 15px;
-}
-
-.text-design-steps {
-    font-family: "Kufam";
-    font-size: 0.8rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    background-color: transparent;
-    color: #000;
-}
- 
-.steps-design span {
-    font-size: 30px;
-    background-color: transparent;
-    color: #EA3017;
-}
-
-.steps-design {
-    color: #EA3017; 
-    font-family: "Kufam";
-    font-size: 0.9rem;
-    background-color: transparent;
-}
-
-.design-proces-ttl {
-    margin-left: 15px;
-    margin-right: 15px;
-}
-
-
-/* testimonial */
-
-.testimonials-ttl {
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-top: 30px;
-}
-
-.txt-testimonial-ttl {
-    color: #FFFFF2;
-    font-family: "Kufam";
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-}
-
-.photo-client {
-    height: 80px;
-    min-width: 80px;
-    background-position: center;
-    border-radius: 50%;
-}
-/* clients */
-
-
-.txt-testimonial-ttl {
-    margin-top: 10px;
-    width: calc(100% - 30px);
-}
-
-.txt-testimonial-ttl {
-    margin-left: 15px;
-}
-
-.general-container-client-testimonial {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-    width: 100%;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 15px;
-}
-
-.card-client-testimonial {
-    display: flex;
-    flex-direction: row;
-    width: calc(100% - 30px);
-    min-height: 140px;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 10px;
-    border: 1px solid #FFFFF2;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.txt-setting {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.first-client {
-    background-image: url(./img/clients/client\ woman\ 1.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 60%;
-}
-
-.second-client {
-    background-image: url(./img/clients/client\ men\ 1.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.third-client {
-    background-image: url(./img/clients/client\ woman\ 2.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.fourth-client {
-    background-image: url(./img/clients/client\ men\ 3.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.fifth-client {
-    background-image: url(./img/clients/client\ men\ 2.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.client-name {
-    background-color: transparent;
-    color: #727270;
-    font-family: "Kufam";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-}
-
-.client-review {
-    color: #FFFFF2;
-    font-family: "Kufam";
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    background-color: transparent;
-}
-
-/* get in touch form */
-
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-}
-
-.ttl-contact {
-    font-size: 25px;
-    color: #EA3017;
-    background-color: transparent;
-    font-family: "Kufam";
-    margin-top: 30px;
-    margin-left: 15px;
-}
-
-.contact-formularium-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    margin-top: 15px;
-    gap: 15px;
-    color: #FFFFF2;
-    font-family: "Kufam";
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-}
-
-.contact-formularium-container iframe {
-    /* margin-right: 15px; */
-    width: 100%;
-}
-
-.contact-formularium-container div {
-    display: flex;
-    flex-direction: column;
-}
-
-.contact-formularium-container label {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.contact-formularium-container input,
-.contact-formularium-container select,
-.contact-formularium-container textarea {
-    width: 100%;
-    padding: 8px;
-    font-size: 12px;
-    font-family: "Kufam";
-    font-style: normal;
-    font-weight: 400;
-    color: #FFFFF2;
-    border: 1px solid #FFFFF2;
-    border-radius: 10px;
-}
-
-.btn-submit {
-    background-color: #FFFFF2;  
-    color: #000; 
-    border: none;  
-    padding: 10px 20px;  
-    font-family: "Kufam";
-    font-size: 12px;
-    font-weight: 400;
-    border-radius: 10px;  
-    cursor: pointer; 
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.btn-submit:hover {
-    background-color: #EA3017;
-    color: #FFFFF2;
-} 
-
-.map-studio {
-    border-radius: 10px;
-}
-
-/* footer section */
-
-.footer-studio {
-    background-color: transparent;
-    color: #FFFFF2;
-    font-family: "Kufam";
-    font-size: 12px;
-    margin-left: 15px;
-    margin-top: 15px;
-}
-
-.icon-footer {
-    color: #FFFFF2;
-    font-size: 30px;
-    transition: all 0.3s ease-in-out;
-}
-
-.icon-footer:hover {
-    transform: scale(1.3);
-}
-
-.icons-social-media {
-    width: calc(50% - 30px);
-    margin-left: 15px;
-    margin-right: 15px;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-}
-
-
-
-/* responsive no displai */
-
-.container-description-studio-laptop, .container-btn-laptop {
-    display: none;
-}
-
-
-/* reveal effect */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* webkits */
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px #2B201E inset !important; /* Color de fondo del input */
-    -webkit-text-fill-color: #FFFFF2 !important; /* Color del texto */
-    transition: background-color 5000s ease-in-out 0s;
-}
-
-
-
-
-
-
